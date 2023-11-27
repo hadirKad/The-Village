@@ -1,16 +1,18 @@
-# the_village
+### the_village Tutorial
+in this file i will share with you a full tutorial of creating 2D video games
+using Flutter flame package .
+here what we will se in this tutorial :
+  -[flame setUp](###flame setUp).
+  -[create levels](###create levels).
+  -[add items](###add items).
+  -[add collision and player movement](###add collision and player movement).
 
-A new Flutter project.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+###flame setUp 👋
+-----
+###create levels
+-----
+###add items
+-----
+###add collision and player movement
+----

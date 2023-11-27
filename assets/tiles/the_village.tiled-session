@@ -22,13 +22,14 @@
         },
         "Level01.tmx": {
             "expandedObjectLayers": [
+                3,
                 2
             ],
             "scale": 1,
-            "selectedLayer": 2,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 255,
-                "y": 202
+                "x": 305,
+                "y": 199
             }
         },
         "Level02.tmx": {
@@ -98,14 +99,14 @@
     "map.tileWidth": 16,
     "map.width": 200,
     "openFiles": [
-        "Tileset.tsx",
-        "Level01.tmx"
+        "Level01.tmx",
+        "Level02.tmx"
     ],
     "project": "the_village.tiled-project",
     "recentFiles": [
-        "Level00.tmx",
         "Level02.tmx",
         "Level01.tmx",
+        "Level00.tmx",
         "Tileset.tsx",
         "Terrain.tsx",
         "TX Village Props.tsx",
