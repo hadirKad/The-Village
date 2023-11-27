@@ -22,18 +22,18 @@
         },
         "Level01.tmx": {
             "scale": 1,
-            "selectedLayer": 0,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 286.5,
-                "y": 261
+                "x": 281,
+                "y": 207
             }
         },
         "Level02.tmx": {
             "scale": 0.5,
-            "selectedLayer": 0,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 677,
-                "y": 64
+                "x": 645,
+                "y": -172
             }
         },
         "Spritesheet.tsx": {

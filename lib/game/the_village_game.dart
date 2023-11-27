@@ -15,7 +15,7 @@ class TheVillageGame extends FlameGame {
 
   @override
   FutureOr<void> onLoad() async {
-    loadLevel('Level02.tmx');
+    loadLevel('Level01.tmx');
     return super.onLoad();
   }
 
@@ -36,5 +36,7 @@ class TheVillageGame extends FlameGame {
     addAll([cam, _currentLevel!]);
 
   }
+
+
 
 }
