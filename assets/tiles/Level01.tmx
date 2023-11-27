@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="40" height="24" tilewidth="16" tileheight="16" infinite="0" nextlayerid="3" nextobjectid="2">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="40" height="24" tilewidth="16" tileheight="16" infinite="0" nextlayerid="3" nextobjectid="10">
  <tileset firstgid="1" source="Terrain.tsx"/>
  <layer id="1" name="Tile Layer 1" width="40" height="24">
   <data encoding="base64">
@@ -8,5 +8,12 @@
  </layer>
  <objectgroup id="2" name="SpawnPoints">
   <object id="1" name="Player" type="Player" x="17" y="300" width="32" height="33"/>
+  <object id="2" name="Fruit" type="Fruit" x="191" y="241" width="32" height="30"/>
+  <object id="4" name="Fruit" type="Fruit" x="270" y="241" width="32" height="30"/>
+  <object id="5" name="Fruit" type="Fruit" x="118" y="304" width="32" height="30"/>
+  <object id="6" name="Fruit" type="Fruit" x="465" y="305" width="32" height="30"/>
+  <object id="7" name="Fruit" type="Fruit" x="529" y="209" width="32" height="30"/>
+  <object id="8" name="Checkpoint" type="Checkpoint" x="577" y="177" width="64" height="64"/>
+  <object id="9" name="Box" type="Box" x="324" y="310" width="28" height="24"/>
  </objectgroup>
 </map>

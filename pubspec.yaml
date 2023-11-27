@@ -35,6 +35,10 @@ flutter:
   assets:
     - assets/images/
     - assets/images/Terrain/
+    - assets/images/Main Characters/Virtual Guy/
+    - assets/images/Items/Fruits/
+    - assets/images/Items/Checkpoints/Checkpoint/
+    - assets/images/Items/Boxes/Box2/
     - assets/tiles/
   
 

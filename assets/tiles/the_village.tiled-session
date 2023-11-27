@@ -21,19 +21,25 @@
             }
         },
         "Level01.tmx": {
+            "expandedObjectLayers": [
+                2
+            ],
             "scale": 1,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 281,
-                "y": 207
+                "x": 420,
+                "y": 202
             }
         },
         "Level02.tmx": {
-            "scale": 0.5,
+            "expandedObjectLayers": [
+                2
+            ],
+            "scale": 1,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 645,
-                "y": -172
+                "x": 307,
+                "y": 237
             }
         },
         "Spritesheet.tsx": {
