@@ -1,12 +1,13 @@
 import 'dart:async';
 import 'package:flame/components.dart';
+import 'package:flame/events.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/animation.dart';
 import 'package:the_village/game/level/level.dart';
 
 import 'actors/player.dart';
 
-class TheVillageGame extends FlameGame {
+class TheVillageGame extends FlameGame with HasCollisionDetection , HasKeyboardHandlerComponents{
 
   ///background color
   @override
@@ -18,7 +19,7 @@ class TheVillageGame extends FlameGame {
 
   @override
   FutureOr<void> onLoad() async {
-    _loadLevel('Level02.tmx');
+    _loadLevel('Level01.tmx');
     _loadImage();
     return super.onLoad();
   }
@@ -44,6 +45,10 @@ class TheVillageGame extends FlameGame {
   void _loadImage() async{
     await images.loadAll([
       "Main Characters/Virtual Guy/Idle (32x32).png",
+      "Main Characters/Virtual Guy/Run (32x32).png",
+      "Main Characters/Virtual Guy/Jump (32x32).png",
+      "Main Characters/Virtual Guy/Fall (32x32).png",
+      "Items/Fruits/Collected.png",
       "Items/Fruits/Pineapple.png",
       "Items/Checkpoints/Checkpoint/Checkpoint (Flag Idle)(64x64).png",
       "Items/Boxes/Box2/Idle.png"

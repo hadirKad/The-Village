@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="200" height="24" tilewidth="16" tileheight="16" infinite="0" nextlayerid="3" nextobjectid="8">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="200" height="24" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="11">
  <tileset firstgid="1" source="Terrain.tsx"/>
  <layer id="1" name="Tile Layer 1" width="200" height="24">
   <data encoding="base64">
@@ -15,4 +15,5 @@
   <object id="6" name="Fruit" type="Fruit" x="387" y="223" width="32" height="32"/>
   <object id="7" name="Box" type="Box" x="491" y="311" width="28" height="24"/>
  </objectgroup>
+ <objectgroup id="3" name="Platforms"/>
 </map>

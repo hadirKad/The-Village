@@ -5,6 +5,7 @@ import 'package:flame_tiled/flame_tiled.dart';
 import 'package:the_village/game/items/box.dart';
 import 'package:the_village/game/items/Fruit.dart';
 import 'package:the_village/game/items/check_point.dart';
+import 'package:the_village/game/items/platfom.dart';
 
 import '../actors/player.dart';
 
@@ -21,9 +22,9 @@ class Level extends World{
     level = await TiledComponent.load(levelName, Vector2.all(16));
     add(level);
     _spawningObjects();
+    _spawningPlatform();
     return super.onLoad();
   }
-
   void _spawningObjects() {
     /// get the spawn points layer with type object group and name SpawnPoints
     ///if spawnPointLayer in null the game will stop so we need to check i
@@ -59,6 +60,16 @@ class Level extends World{
       }
     }
   }
-
+  void _spawningPlatform() {
+    final spawnPointsLayer = level.tileMap.getLayer<ObjectGroup>('Platforms');
+    if (spawnPointsLayer != null) {
+      for (final spawnPoint in spawnPointsLayer.objects) {
+          final platform = Platform(
+              position: Vector2(spawnPoint.x , spawnPoint.y),
+              size: Vector2(spawnPoint.width , spawnPoint.height));
+          add(platform);
+        }
+      }
+    }
 
 }

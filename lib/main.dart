@@ -1,5 +1,6 @@
 import 'package:flame/flame.dart';
 import 'package:flame/game.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:the_village/game/the_village_game.dart';
 
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "The Village",
       home: Scaffold(
-        body: GameWidget(game: TheVillageGame()),
+        body: GameWidget(game: kDebugMode ? TheVillageGame() : _game),
       ),
     );
   }

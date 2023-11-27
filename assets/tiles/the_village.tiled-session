@@ -25,9 +25,9 @@
                 2
             ],
             "scale": 1,
-            "selectedLayer": 1,
+            "selectedLayer": 2,
             "viewCenter": {
-                "x": 420,
+                "x": 255,
                 "y": 202
             }
         },
@@ -36,10 +36,10 @@
                 2
             ],
             "scale": 1,
-            "selectedLayer": 1,
+            "selectedLayer": 2,
             "viewCenter": {
-                "x": 307,
-                "y": 237
+                "x": 300,
+                "y": 236
             }
         },
         "Spritesheet.tsx": {
