@@ -33,12 +33,15 @@ class Player extends SpriteAnimationGroupComponent with
   final double stepTime = 0.05;
   final Vector2 _velocity = Vector2.zero();
   ///-1 left , 1 right , 0 idle
-  int _hAxisInput = 0;
+  int hAxisInput = 0;
   final double _moveSpeed = 200 ;
   final double _gravity = 10;
   final double _jumpSpeed = 320;
-  bool _jumpInput = false;
+  bool jumpInput = false;
   bool _isOnGround = false;
+  late Vector2 _minClamp;
+  late Vector2 _maxClamp;
+
 
   @override
   FutureOr<void> onLoad() {
@@ -87,10 +90,10 @@ class Player extends SpriteAnimationGroupComponent with
 
   @override
   bool onKeyEvent(RawKeyEvent event, Set<LogicalKeyboardKey> keysPressed) {
-    _hAxisInput = 0 ;
-    _hAxisInput += keysPressed.contains(LogicalKeyboardKey.arrowLeft)? -1 : 0;
-    _hAxisInput += keysPressed.contains(LogicalKeyboardKey.arrowRight)?  1 : 0;
-    _jumpInput = keysPressed.contains(LogicalKeyboardKey.arrowUp);
+    hAxisInput = 0 ;
+    hAxisInput += keysPressed.contains(LogicalKeyboardKey.arrowLeft)? -1 : 0;
+    hAxisInput += keysPressed.contains(LogicalKeyboardKey.arrowRight)?  1 : 0;
+    jumpInput = keysPressed.contains(LogicalKeyboardKey.arrowUp);
     return super.onKeyEvent(event, keysPressed);
   }
 
@@ -136,18 +139,20 @@ class Player extends SpriteAnimationGroupComponent with
   }
 
   void _updatePlayerMovement(double dt) {
-    _velocity.x = _hAxisInput * _moveSpeed ;
+    _velocity.x = hAxisInput * _moveSpeed ;
     _velocity.y += _gravity ;
-    if(_jumpInput){
+    if(jumpInput){
       if(_isOnGround){
         _velocity.y = -_jumpSpeed ;
         _isOnGround = false;
       }
-      _jumpInput = false ;
+      jumpInput = false ;
     }
     ///to control the gravity between max and min value
     _velocity.y = _velocity.y.clamp(-_jumpSpeed, 150);
     position += _velocity * dt ;
+    ///to make sure the player position don't go out the game
+    //position.clamp(min, max);
   }
 
 }

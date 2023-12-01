@@ -1,19 +1,22 @@
 import 'dart:async';
 
 import 'package:flame/components.dart';
+import 'package:flame/experimental.dart';
 import 'package:flame_tiled/flame_tiled.dart';
 import 'package:the_village/game/items/box.dart';
 import 'package:the_village/game/items/Fruit.dart';
 import 'package:the_village/game/items/check_point.dart';
 import 'package:the_village/game/items/platfom.dart';
+import 'package:the_village/game/the_village_game.dart';
 
 import '../actors/player.dart';
 
-class Level extends World{
+class Level extends World with HasGameRef<TheVillageGame>{
   final String levelName;
   final Player player;
   /// the level is a tiledComponent
   late TiledComponent level;
+
 
   Level({required this.levelName, required this.player}):super();
 
@@ -23,6 +26,7 @@ class Level extends World{
     add(level);
     _spawningObjects();
     _spawningPlatform();
+    _setUpCamera();
     return super.onLoad();
   }
   void _spawningObjects() {
@@ -71,5 +75,11 @@ class Level extends World{
         }
       }
     }
+
+  _setUpCamera() {
+    //gameRef.cam.follow(player , horizontalOnly: true, snap: false,);
+
+
+  }
 
 }

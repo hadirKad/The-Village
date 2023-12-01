@@ -1,8 +1,7 @@
 ### the_village Tutorial 👾
 -----
-in this file i will share with you a full tutorial of creating 2D video games
-using Flutter flame package .
-here what we will se in this tutorial :
+in this file i will share with you a full tutorial of creating 2D video games using Flutter flame package .
+here what we will see in this tutorial :
  - [flame setUp](#flame_set_up).
  - [create levels](#create_levels).
  - [add items](#add_items).
