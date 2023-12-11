@@ -3,7 +3,7 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "Level01.tmx",
+    "activeFile": "Level03.tmx",
     "expandedProjectPaths": [
         "."
     ],
@@ -26,10 +26,10 @@
                 2
             ],
             "scale": 1,
-            "selectedLayer": 0,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 301,
-                "y": 165
+                "x": 307,
+                "y": 189
             }
         },
         "Level02.tmx": {
@@ -37,20 +37,40 @@
                 3,
                 2
             ],
+            "scale": 0.75,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 2853.333333333333,
+                "y": 249.33333333333331
+            }
+        },
+        "Level03.tmx": {
+            "expandedObjectLayers": [
+                3,
+                2
+            ],
             "scale": 1,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 3215,
-                "y": 234
+                "x": 322,
+                "y": 190
             }
+        },
+        "Medieval_props_free.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
         },
         "Spritesheet.tsx": {
             "dynamicWrapping": false,
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
+        "TX Tileset Ground.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
         "TX Village Props.tsx": {
-            "scaleInDock": 0.5,
+            "scaleInDock": 1,
             "scaleInEditor": 1
         },
         "Terrain.tsx": {
@@ -98,29 +118,34 @@
     "map.layerDataFormat": null,
     "map.tileHeight": 16,
     "map.tileWidth": 16,
-    "map.width": 200,
+    "map.width": 40,
     "openFiles": [
         "Level01.tmx",
-        "Level02.tmx"
+        "Level02.tmx",
+        "TX Tileset Ground.tsx",
+        "Medieval_props_free.tsx",
+        "TX Village Props.tsx",
+        "Level03.tmx"
     ],
     "project": "the_village.tiled-project",
     "recentFiles": [
-        "Level02.tmx",
         "Level01.tmx",
+        "Level02.tmx",
+        "TX Tileset Ground.tsx",
+        "Medieval_props_free.tsx",
+        "TX Village Props.tsx",
+        "Level03.tmx",
         "Level00.tmx",
         "Tileset.tsx",
         "Terrain.tsx",
-        "TX Village Props.tsx",
         "level03.tmx",
         "level02.tmx",
-        "blue.tsx",
-        "Spritesheet.tsx",
-        "level01.tmx"
+        "blue.tsx"
     ],
     "tileset.lastUsedFilter": "Tiled tileset files (*.tsx *.xml)",
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
-        "height": 16,
-        "width": 16
+        "height": 32,
+        "width": 32
     }
 }

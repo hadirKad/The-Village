@@ -1,6 +1,9 @@
 import 'dart:async';
+import 'dart:developer';
+import 'package:flame/camera.dart';
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
+import 'package:flame/experimental.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/animation.dart';
 import 'package:flutter/cupertino.dart';
@@ -17,42 +20,11 @@ class TheVillageGame extends FlameGame with HasCollisionDetection , HasKeyboardH
 
   World? _currentLevel ;
   late CameraComponent cam;
-  Player player = Player();
   late JoystickComponent joystick;
 
   @override
   FutureOr<void> onLoad() async {
-    _loadLevel('Level01.tmx');
-    _loadImage();
-    _addJoystick();
-    add(Button(buttonImage: "HUD/JumpButton.png" ));
-    return super.onLoad();
-  }
-
-  @override
-  void update(double dt) {
-    updateJoystick();
-    super.update(dt);
-  }
-  void _loadLevel(String levelName){
-    ///if we already have level w remove it from the world
-    _currentLevel?.removeFromParent();
-    ///we create a new level with the level name
-    _currentLevel = Level(levelName: levelName, player: player);
-    ///because the level 01 have small width w need to change the camera width
-    if(levelName == "Level01.tmx" ){
-      cam = CameraComponent.withFixedResolution(
-          world: _currentLevel, width: 680, height: 384);
-    }else{
-      cam = CameraComponent.withFixedResolution(
-          world: _currentLevel, width: size.x, height: size.y);
-    }
-    cam.viewfinder.anchor = Anchor.topLeft;
-    addAll([cam, _currentLevel!]);
-
-  }
-
-  void _loadImage() async{
+    loadLevel('Level01.tmx');
     await images.loadAll([
       "Main Characters/Virtual Guy/Idle (32x32).png",
       "Main Characters/Virtual Guy/Run (32x32).png",
@@ -68,7 +40,30 @@ class TheVillageGame extends FlameGame with HasCollisionDetection , HasKeyboardH
       'HUD/Joystick.png',
       'HUD/JumpButton.png'
     ]);
+    _addControllers();
+    return super.onLoad();
   }
+
+  @override
+  void update(double dt) {
+    //updateJoystick();
+    super.update(dt);
+  }
+  void loadLevel(String levelName){
+    ///if we already have level w remove it from the world
+    _currentLevel?.removeFromParent();
+    ///we create a new level with the level name
+    _currentLevel = Level(levelName: levelName);
+    cam = CameraComponent(world: _currentLevel)
+      ..viewport.size = Vector2(size.x, size.y)
+      ..viewfinder.position = Vector2(0, 0)
+      ..viewfinder.anchor = Anchor.topLeft
+      ..viewport.position = Vector2(500, 0);
+
+    addAll([cam , _currentLevel!]);
+
+  }
+
 
   void _addJoystick() {
     joystick = JoystickComponent(
@@ -85,11 +80,11 @@ class TheVillageGame extends FlameGame with HasCollisionDetection , HasKeyboardH
           )),
       margin: const EdgeInsets.only(left: 32, bottom: 32),
     );
-    add(joystick);
+    //add(joystick);
 
   }
 
-  void updateJoystick() {
+  /*void updateJoystick() {
     switch (joystick.direction) {
       case JoystickDirection.left:
       case JoystickDirection.upLeft:
@@ -105,5 +100,10 @@ class TheVillageGame extends FlameGame with HasCollisionDetection , HasKeyboardH
         player.hAxisInput = 0;
         break;
     }
+  }*/
+
+  void _addControllers() {
+    _addJoystick();
+    //add(Button(buttonImage: "HUD/JumpButton.png" ));
   }
 }

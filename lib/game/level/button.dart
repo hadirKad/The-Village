@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
@@ -25,12 +24,12 @@ class Button extends SpriteComponent with HasGameRef<TheVillageGame> , TapCallba
 
   @override
   void onTapUp(TapUpEvent event) {
-    gameRef.player.jumpInput = true;
+    //gameRef.player.jumpInput = true;
     super.onTapUp(event);
   }
   @override
   void onTapDown(TapDownEvent event) {
-    gameRef.player.jumpInput = false;
+    //gameRef.player.jumpInput = false;
     super.onTapDown(event);
   }
 

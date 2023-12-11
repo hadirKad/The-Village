@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
+import 'package:flame/experimental.dart';
 import 'package:flutter/services.dart';
 import 'package:the_village/game/items/Fruit.dart';
 import 'package:the_village/game/items/platfom.dart';
@@ -21,8 +22,15 @@ enum PlayerState {
 ///has game ref is to reference the player with the game so we can use the component inside it ///
 class Player extends SpriteAnimationGroupComponent with
     HasGameRef<TheVillageGame> , CollisionCallbacks , KeyboardHandler{
+
+  Rectangle levelBounds;
   ///get position and set the original position which is (0,0)
-  Player({position}) : super(position: position);
+  Player( {position , required this.levelBounds }) :super(position: position )
+  {
+    //final halfSize = size! * 2;
+    //_minClamp = Vector2(levelBounds.topLeft.dx, levelBounds.topLeft.dy) - halfSize;
+    //_maxClamp = Vector2(levelBounds.bottomRight.dx, levelBounds.bottomRight.dy) -halfSize;
+  }
 
   ///animation var
   late final SpriteAnimation idleAnimation;
@@ -39,8 +47,8 @@ class Player extends SpriteAnimationGroupComponent with
   final double _jumpSpeed = 320;
   bool jumpInput = false;
   bool _isOnGround = false;
-  late Vector2 _minClamp;
-  late Vector2 _maxClamp;
+  //late Vector2 _minClamp;
+  //late Vector2 _maxClamp;
 
 
   @override
@@ -152,7 +160,7 @@ class Player extends SpriteAnimationGroupComponent with
     _velocity.y = _velocity.y.clamp(-_jumpSpeed, 150);
     position += _velocity * dt ;
     ///to make sure the player position don't go out the game
-    //position.clamp(min, max);
+    //position.clamp(_minClamp, _maxClamp);
   }
 
 }

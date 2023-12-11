@@ -1,8 +1,11 @@
 import 'dart:async';
+import 'dart:developer';
+import 'dart:html';
 
 import 'package:flame/components.dart';
 import 'package:flame/experimental.dart';
 import 'package:flame_tiled/flame_tiled.dart';
+import 'package:flutter/animation.dart';
 import 'package:the_village/game/items/box.dart';
 import 'package:the_village/game/items/Fruit.dart';
 import 'package:the_village/game/items/check_point.dart';
@@ -11,24 +14,38 @@ import 'package:the_village/game/the_village_game.dart';
 
 import '../actors/player.dart';
 
-class Level extends World with HasGameRef<TheVillageGame>{
+class Level extends World with HasGameRef<TheVillageGame> {
   final String levelName;
-  final Player player;
+  late Player player;
+
   /// the level is a tiledComponent
   late TiledComponent level;
+  late Rectangle _levelBounds;
 
-
-  Level({required this.levelName, required this.player}):super();
+  Level({required this.levelName}) : super();
 
   @override
-  FutureOr<void> onLoad() async{
+  FutureOr<void> onLoad() async {
     level = await TiledComponent.load(levelName, Vector2.all(16));
     add(level);
+
+    ///calculate level bounds
+    _levelBounds = Rectangle.fromPoints(
+        Vector2(0,0),
+        Vector2(level.tileMap.map.width.toDouble(),
+            level.tileMap.map.height.toDouble()) * 16);
     _spawningObjects();
     _spawningPlatform();
     _setUpCamera();
     return super.onLoad();
   }
+
+  @override
+  void update(double dt) {
+    _setUpCamera();
+    super.update(dt);
+  }
+
   void _spawningObjects() {
     /// get the spawn points layer with type object group and name SpawnPoints
     ///if spawnPointLayer in null the game will stop so we need to check i
@@ -38,48 +55,56 @@ class Level extends World with HasGameRef<TheVillageGame>{
       for (final spawnPoint in spawnPointsLayer.objects) {
         switch (spawnPoint.class_) {
           case 'Player':
-          ///we put the character in the same spawn point x and y
-            player.position = Vector2(spawnPoint.x, spawnPoint.y);
+
+            ///we put the character in the same spawn point x and y
+            player = Player(
+                levelBounds: _levelBounds,
+                position: Vector2(spawnPoint.x, spawnPoint.y));
             add(player);
             break;
           case 'Fruit':
             Fruit fruit = Fruit();
-          ///we put the fruit in the same spawn point x and y
+
+            ///we put the fruit in the same spawn point x and y
             fruit.position = Vector2(spawnPoint.x, spawnPoint.y);
             add(fruit);
             break;
           case 'Checkpoint':
-            Checkpoint checkpoint = Checkpoint();
+            ///get the next level name
+            final String nextLevel = spawnPoint.properties.first.value.toString();
+            Checkpoint checkpoint = Checkpoint(
+                nextLevel: nextLevel);
             ///we put the fruit in the same spawn point x and y
             checkpoint.position = Vector2(spawnPoint.x, spawnPoint.y);
             add(checkpoint);
             break;
           case 'Box':
             Box box = Box();
+
             ///we put the fruit in the same spawn point x and y
             box.position = Vector2(spawnPoint.x, spawnPoint.y);
-            add(box);
+            //add(box);
             break;
         }
       }
     }
   }
+
   void _spawningPlatform() {
     final spawnPointsLayer = level.tileMap.getLayer<ObjectGroup>('Platforms');
     if (spawnPointsLayer != null) {
       for (final spawnPoint in spawnPointsLayer.objects) {
-          final platform = Platform(
-              position: Vector2(spawnPoint.x , spawnPoint.y),
-              size: Vector2(spawnPoint.width , spawnPoint.height));
-          add(platform);
-        }
+        final platform = Platform(
+            position: Vector2(spawnPoint.x, spawnPoint.y),
+            size: Vector2(spawnPoint.width, spawnPoint.height));
+        add(platform);
       }
     }
+  }
 
   _setUpCamera() {
-    //gameRef.cam.follow(player , horizontalOnly: true, snap: false,);
-
-
+    gameRef.cam.setBounds(_levelBounds);
+    gameRef.cam.follow(player, horizontalOnly: true, snap: false);
   }
 
 }
