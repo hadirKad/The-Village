@@ -16,13 +16,13 @@ import '../actors/player.dart';
 
 class Level extends World with HasGameRef<TheVillageGame> {
   final String levelName;
-  late Player player;
+  Player player;
 
   /// the level is a tiledComponent
   late TiledComponent level;
   late Rectangle _levelBounds;
 
-  Level({required this.levelName}) : super();
+  Level({required this.levelName , required this.player}) : super();
 
   @override
   FutureOr<void> onLoad() async {
@@ -57,9 +57,9 @@ class Level extends World with HasGameRef<TheVillageGame> {
           case 'Player':
 
             ///we put the character in the same spawn point x and y
-            player = Player(
-                levelBounds: _levelBounds,
-                position: Vector2(spawnPoint.x, spawnPoint.y));
+            player.levelBounds =_levelBounds;
+            player.position = Vector2(spawnPoint.x, spawnPoint.y);
+            player.setPlayerLevelBound();  
             add(player);
             break;
           case 'Fruit':

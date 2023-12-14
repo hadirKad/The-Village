@@ -1,7 +1,9 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
+import 'package:flame/effects.dart';
 import 'package:flame/experimental.dart';
 import 'package:flutter/services.dart';
 import 'package:the_village/game/items/Fruit.dart';
@@ -23,14 +25,9 @@ enum PlayerState {
 class Player extends SpriteAnimationGroupComponent with
     HasGameRef<TheVillageGame> , CollisionCallbacks , KeyboardHandler{
 
-  Rectangle levelBounds;
+  Rectangle? levelBounds;
   ///get position and set the original position which is (0,0)
-  Player( {position , required this.levelBounds }) :super(position: position )
-  {
-    final halfSize = size * 2;
-    _minClamp = Vector2(levelBounds.topLeft.x, levelBounds.topLeft.y) - halfSize;
-    _maxClamp = Vector2(levelBounds.bottomRight.x, levelBounds.bottomRight.y) -halfSize;
-  }
+  Player( {position ,  this.levelBounds }) :super(position: position );
 
   ///animation var
   late final SpriteAnimation idleAnimation;
@@ -47,8 +44,8 @@ class Player extends SpriteAnimationGroupComponent with
   final double _jumpSpeed = 320;
   bool jumpInput = false;
   bool _isOnGround = false;
-  late Vector2 _minClamp;
-  late Vector2 _maxClamp;
+  Vector2? _minClamp;
+  Vector2? _maxClamp;
 
 
   @override
@@ -64,6 +61,14 @@ class Player extends SpriteAnimationGroupComponent with
     _updatePlayerState();
     _updatePlayerMovement(dt);
     super.update(dt);
+  }
+
+  void setPlayerLevelBound(){
+    if(levelBounds != null){
+      final halfSize = size/2 ;
+    _minClamp = Vector2(levelBounds!.topLeft.x , levelBounds!.topLeft.y) + halfSize;
+    _maxClamp = Vector2(levelBounds!.bottomRight.x, levelBounds!.bottomRight.y) -halfSize;
+    }
   }
 
   ///function to create all animation
@@ -160,7 +165,18 @@ class Player extends SpriteAnimationGroupComponent with
     _velocity.y = _velocity.y.clamp(-_jumpSpeed, 150);
     position += _velocity * dt ;
     ///to make sure the player position don't go out the game
-    position.clamp(_minClamp, _maxClamp);
+    if(_maxClamp != null && _minClamp != null){
+      position.clamp(_minClamp!, _maxClamp!);
+    }
+    
+  }
+
+  void hit(){
+    ///when the player get hit by enemy we run this method
+    add(OpacityEffect.fadeOut(EffectController(
+      alternate: true,
+      duration: 0.1,
+      repeatCount: 5)));
   }
 
 }

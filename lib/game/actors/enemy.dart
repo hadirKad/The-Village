@@ -3,17 +3,14 @@ import 'dart:async';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
+import 'package:the_village/game/actors/player.dart';
 import 'package:the_village/game/the_village_game.dart';
 
-class Enemy extends SpriteAnimationComponent with HasGameRef<TheVillageGame>{
+class Enemy extends SpriteAnimationComponent with HasGameRef<TheVillageGame> , CollisionCallbacks{
   final double _speed = 50;
   Vector2 targetPosition ;
 
   Enemy({position , required this.targetPosition}) : super (position: position){
-   
-
-    // Goomba will move 100 pixels to the left and right.
-    //targetPosition.x -= 100;
 
     final SequenceEffect effect = SequenceEffect(
       [
@@ -47,6 +44,12 @@ class Enemy extends SpriteAnimationComponent with HasGameRef<TheVillageGame>{
     return super.onLoad();
   }
 
-  
+  @override
+  void onCollisionStart(Set<Vector2> intersectionPoints, PositionComponent other) {
+    if(other is Player){
+      other.hit();
+    }
+    super.onCollisionStart(intersectionPoints, other);
+  }
 
 }

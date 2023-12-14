@@ -19,17 +19,18 @@ class Button extends SpriteComponent with HasGameRef<TheVillageGame> , TapCallba
         game.size.x - margin - buttonSize,
         game.size.y - margin - buttonSize);
     priority = 10;
+
     return super.onLoad();
   }
 
   @override
   void onTapUp(TapUpEvent event) {
-    //gameRef.player.jumpInput = true;
+    gameRef.player.jumpInput = true;
     super.onTapUp(event);
   }
   @override
   void onTapDown(TapDownEvent event) {
-    //gameRef.player.jumpInput = false;
+    gameRef.player.jumpInput = false;
     super.onTapDown(event);
   }
 
