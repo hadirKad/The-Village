@@ -1,11 +1,11 @@
 import 'dart:async';
 import 'dart:developer';
-import 'dart:html';
 
 import 'package:flame/components.dart';
 import 'package:flame/experimental.dart';
 import 'package:flame_tiled/flame_tiled.dart';
 import 'package:flutter/animation.dart';
+import 'package:the_village/game/actors/enemy.dart';
 import 'package:the_village/game/items/box.dart';
 import 'package:the_village/game/items/Fruit.dart';
 import 'package:the_village/game/items/check_point.dart';
@@ -69,6 +69,13 @@ class Level extends World with HasGameRef<TheVillageGame> {
             fruit.position = Vector2(spawnPoint.x, spawnPoint.y);
             add(fruit);
             break;
+          case 'Enemy':
+            Vector2 targetPosition = Vector2(spawnPoint.x+ 50, spawnPoint.y);
+            Enemy enemy = Enemy(
+              position:  Vector2(spawnPoint.x, spawnPoint.y),
+              targetPosition: targetPosition);
+            add(enemy);
+            break;  
           case 'Checkpoint':
             ///get the next level name
             final String nextLevel = spawnPoint.properties.first.value.toString();

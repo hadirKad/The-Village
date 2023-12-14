@@ -15,6 +15,7 @@ class Fruit extends SpriteAnimationComponent with HasGameRef<TheVillageGame> , C
     add(RectangleHitbox(
       position: Vector2(10, 10),
       size: Vector2(12, 12),
+      collisionType: CollisionType.passive
     ));
     animation = SpriteAnimation.fromFrameData(
         game.images.fromCache("Items/Fruits/Pineapple.png"),

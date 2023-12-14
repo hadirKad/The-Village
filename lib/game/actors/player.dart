@@ -27,9 +27,9 @@ class Player extends SpriteAnimationGroupComponent with
   ///get position and set the original position which is (0,0)
   Player( {position , required this.levelBounds }) :super(position: position )
   {
-    //final halfSize = size! * 2;
-    //_minClamp = Vector2(levelBounds.topLeft.dx, levelBounds.topLeft.dy) - halfSize;
-    //_maxClamp = Vector2(levelBounds.bottomRight.dx, levelBounds.bottomRight.dy) -halfSize;
+    final halfSize = size * 2;
+    _minClamp = Vector2(levelBounds.topLeft.x, levelBounds.topLeft.y) - halfSize;
+    _maxClamp = Vector2(levelBounds.bottomRight.x, levelBounds.bottomRight.y) -halfSize;
   }
 
   ///animation var
@@ -47,8 +47,8 @@ class Player extends SpriteAnimationGroupComponent with
   final double _jumpSpeed = 320;
   bool jumpInput = false;
   bool _isOnGround = false;
-  //late Vector2 _minClamp;
-  //late Vector2 _maxClamp;
+  late Vector2 _minClamp;
+  late Vector2 _maxClamp;
 
 
   @override
@@ -160,7 +160,7 @@ class Player extends SpriteAnimationGroupComponent with
     _velocity.y = _velocity.y.clamp(-_jumpSpeed, 150);
     position += _velocity * dt ;
     ///to make sure the player position don't go out the game
-    //position.clamp(_minClamp, _maxClamp);
+    position.clamp(_minClamp, _maxClamp);
   }
 
 }

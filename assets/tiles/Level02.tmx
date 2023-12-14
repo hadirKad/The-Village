@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="200" height="24" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="49">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="200" height="24" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="52">
  <tileset firstgid="1" source="Terrain.tsx"/>
  <layer id="1" name="Tile Layer 1" width="200" height="24">
   <data encoding="base64">
@@ -17,7 +17,6 @@
   <object id="4" name="Fruit" type="Fruit" x="198" y="302" width="32" height="32"/>
   <object id="5" name="Fruit" type="Fruit" x="257" y="224" width="32" height="32"/>
   <object id="6" name="Fruit" type="Fruit" x="656.333" y="237.667" width="32" height="32"/>
-  <object id="7" name="Box" type="Box" x="491" y="311" width="28" height="24"/>
   <object id="35" name="Fruit" type="Fruit" x="393.333" y="222.667" width="32" height="32"/>
   <object id="36" name="Fruit" type="Fruit" x="1012" y="78.6667" width="32" height="32"/>
   <object id="37" name="Fruit" type="Fruit" x="1182.67" y="77.3333" width="32" height="32"/>
@@ -28,13 +27,13 @@
   <object id="42" name="Fruit" type="Fruit" x="2228" y="286.667" width="32" height="32"/>
   <object id="43" name="Fruit" type="Fruit" x="2464" y="285.333" width="32" height="32"/>
   <object id="44" name="Fruit" type="Fruit" x="2644" y="282.667" width="32" height="32"/>
+  <object id="49" name="Enemy" type="Enemy" x="532" y="304.667" width="32" height="32"/>
+  <object id="50" name="Enemy" type="Enemy" x="1470.67" y="303.333" width="32" height="32"/>
  </objectgroup>
  <objectgroup id="3" name="Platforms">
   <object id="11" x="1" y="336" width="239" height="46"/>
   <object id="12" x="240" y="256" width="207" height="126"/>
   <object id="13" x="447" y="337" width="2753" height="46"/>
-  <object id="14" x="1" y="1" width="13" height="335"/>
-  <object id="15" x="3183" y="1" width="14" height="335"/>
   <object id="17" x="622.667" y="274.667" width="98.6667" height="64"/>
   <object id="18" x="288" y="0" width="112" height="162.667"/>
   <object id="19" x="977.333" y="129.333" width="445.333" height="210.667"/>

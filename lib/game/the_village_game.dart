@@ -24,12 +24,13 @@ class TheVillageGame extends FlameGame with HasCollisionDetection , HasKeyboardH
 
   @override
   FutureOr<void> onLoad() async {
-    loadLevel('Level01.tmx');
+    loadLevel('Level02.tmx');
     await images.loadAll([
       "Main Characters/Virtual Guy/Idle (32x32).png",
       "Main Characters/Virtual Guy/Run (32x32).png",
       "Main Characters/Virtual Guy/Jump (32x32).png",
       "Main Characters/Virtual Guy/Fall (32x32).png",
+      "Main Characters/Mask Dude/Run (32x32).png",
       "Items/Fruits/Collected.png",
       "Items/Fruits/Pineapple.png",
       "Items/Checkpoints/Checkpoint/Checkpoint (Flag Idle)(64x64).png",
@@ -58,7 +59,7 @@ class TheVillageGame extends FlameGame with HasCollisionDetection , HasKeyboardH
       ..viewport.size = Vector2(size.x, size.y)
       ..viewfinder.position = Vector2(0, 0)
       ..viewfinder.anchor = Anchor.topLeft
-      ..viewport.position = Vector2(500, 0);
+      ..viewport.position = Vector2(400, 0);
 
     addAll([cam , _currentLevel!]);
 

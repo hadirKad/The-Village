@@ -22,38 +22,38 @@
         },
         "Level01.tmx": {
             "expandedObjectLayers": [
-                3,
-                2
+                2,
+                3
             ],
             "scale": 1,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 307,
-                "y": 189
+                "x": 319.5,
+                "y": 192
             }
         },
         "Level02.tmx": {
             "expandedObjectLayers": [
-                3,
-                2
+                2,
+                3
             ],
             "scale": 0.75,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 2853.333333333333,
-                "y": 249.33333333333331
+                "x": 1599.3333333333333,
+                "y": 191.99999999999997
             }
         },
         "Level03.tmx": {
             "expandedObjectLayers": [
-                3,
-                2
+                2,
+                3
             ],
             "scale": 1,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 322,
-                "y": 190
+                "x": 321,
+                "y": 189
             }
         },
         "Medieval_props_free.tsx": {
@@ -128,6 +128,7 @@
         "Level03.tmx"
     ],
     "project": "the_village.tiled-project",
+    "property.type": "object",
     "recentFiles": [
         "Level01.tmx",
         "Level02.tmx",
