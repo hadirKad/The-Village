@@ -177,4 +177,9 @@ class Player extends SpriteAnimationGroupComponent with
       repeatCount: 5)));
   }
 
+  void jump(){
+    jumpInput = true;
+    _isOnGround = true;
+  }
+
 }
