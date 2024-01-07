@@ -48,6 +48,10 @@ class Enemy extends SpriteAnimationComponent with HasGameRef<TheVillageGame> , C
   void onCollisionStart(Set<Vector2> intersectionPoints, PositionComponent other) {
     if(other is Player){
       other.hit();
+      if(gameRef.playerData.health.value > 0){
+        gameRef.playerData.health.value -= 1;
+      }
+
     }
     super.onCollisionStart(intersectionPoints, other);
   }

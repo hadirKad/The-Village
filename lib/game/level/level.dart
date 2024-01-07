@@ -1,10 +1,8 @@
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:flame/components.dart';
 import 'package:flame/experimental.dart';
 import 'package:flame_tiled/flame_tiled.dart';
-import 'package:flutter/animation.dart';
 import 'package:the_village/game/actors/enemy.dart';
 import 'package:the_village/game/items/box.dart';
 import 'package:the_village/game/items/Fruit.dart';

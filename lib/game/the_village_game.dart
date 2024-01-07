@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:the_village/game/hud/hud.dart';
 import 'package:the_village/game/level/button.dart';
 import 'package:the_village/game/level/level.dart';
+import 'package:the_village/game/model/player_data.dart';
 
 import 'actors/player.dart';
 
@@ -19,6 +20,7 @@ class TheVillageGame extends FlameGame with HasCollisionDetection , HasKeyboardH
   late CameraComponent cam;
   late JoystickComponent joystick;
   Player player = Player();
+  final playerData = PlayerData();
   
 
   @override
@@ -43,14 +45,14 @@ class TheVillageGame extends FlameGame with HasCollisionDetection , HasKeyboardH
 
     add(Hud(priority: 1));
     
-    _addControllers();
+    //_addControllers();
     
     return super.onLoad();
   }
 
   @override
   void update(double dt) {
-    updateJoystick();
+    //updateJoystick();
     super.update(dt);
   }
   void loadLevel(String levelName){

@@ -3,7 +3,7 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "Level03.tmx",
+    "activeFile": "Level02.tmx",
     "expandedProjectPaths": [
         "."
     ],
@@ -38,10 +38,10 @@
                 3
             ],
             "scale": 0.75,
-            "selectedLayer": 1,
+            "selectedLayer": 2,
             "viewCenter": {
-                "x": 1599.3333333333333,
-                "y": 191.99999999999997
+                "x": 1431.3333333333333,
+                "y": 297.3333333333333
             }
         },
         "Level03.tmx": {
@@ -131,11 +131,11 @@
     "property.type": "object",
     "recentFiles": [
         "Level01.tmx",
-        "Level02.tmx",
-        "TX Tileset Ground.tsx",
-        "Medieval_props_free.tsx",
-        "TX Village Props.tsx",
         "Level03.tmx",
+        "TX Village Props.tsx",
+        "Medieval_props_free.tsx",
+        "TX Tileset Ground.tsx",
+        "Level02.tmx",
         "Level00.tmx",
         "Tileset.tsx",
         "Terrain.tsx",

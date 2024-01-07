@@ -1,8 +1,6 @@
 import 'dart:async';
 
 import 'package:flame/components.dart';
-import 'package:flame/extensions.dart';
-import 'package:flutter/widgets.dart';
 import 'package:the_village/game/the_village_game.dart';
 
 class Hud extends Component with HasGameRef<TheVillageGame>{
@@ -29,6 +27,13 @@ class Hud extends Component with HasGameRef<TheVillageGame>{
           healthTextComponent.position.x - healthTextComponent.size.x - 5, 5),
     );
     add(playerSprite);
+
+    gameRef.playerData.score.addListener(() {
+      scoreTextComponent.text = 'Score : ${gameRef.playerData.score.value}';
+    });
+    gameRef.playerData.health.addListener(() {
+      healthTextComponent.text = 'X${gameRef.playerData.health.value}';
+    });
     
     return super.onLoad();
   }

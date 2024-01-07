@@ -35,6 +35,7 @@ class Fruit extends SpriteAnimationComponent with HasGameRef<TheVillageGame> , C
 
     await animationTicker?.completed;
     removeFromParent();
+    gameRef.playerData.score.value += 1;
   }
 
 }
