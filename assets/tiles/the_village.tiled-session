@@ -22,38 +22,38 @@
         },
         "Level01.tmx": {
             "expandedObjectLayers": [
-                2,
-                3
+                3,
+                2
             ],
             "scale": 1,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 319.5,
-                "y": 192
+                "x": 523.5,
+                "y": 169
             }
         },
         "Level02.tmx": {
             "expandedObjectLayers": [
-                2,
-                3
+                3,
+                2
             ],
             "scale": 0.75,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 1431.3333333333333,
-                "y": 297.3333333333333
+                "x": 1428.6666666666665,
+                "y": 294.66666666666663
             }
         },
         "Level03.tmx": {
             "expandedObjectLayers": [
-                2,
-                3
+                3,
+                2
             ],
             "scale": 1,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 321,
-                "y": 189
+                "x": 523.5,
+                "y": 169
             }
         },
         "Medieval_props_free.tsx": {

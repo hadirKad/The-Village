@@ -64,7 +64,7 @@ class TheVillageGame extends FlameGame with HasCollisionDetection , HasKeyboardH
       ..viewport.size = Vector2(size.x, size.y)
       ..viewfinder.position = Vector2(0, 0)
       ..viewfinder.anchor = Anchor.topLeft
-      ..viewport.position = Vector2(400, 0);
+      ..viewport.position = Vector2(100, 0);
 
     addAll([cam , _currentLevel!]);
 
@@ -73,7 +73,7 @@ class TheVillageGame extends FlameGame with HasCollisionDetection , HasKeyboardH
 
   void _addJoystick() {
     joystick = JoystickComponent(
-      priority:11,
+      priority:100,
       knob: SpriteComponent(
         sprite: Sprite(
           images.fromCache('HUD/Knob.png'),
@@ -110,6 +110,6 @@ class TheVillageGame extends FlameGame with HasCollisionDetection , HasKeyboardH
 
   void _addControllers() {
     _addJoystick();
-    add(Button(buttonImage: "HUD/JumpButton.png" ));
+    add(Button(buttonImage: "HUD/JumpButton.png" )..priority = 101);
   }
 }
